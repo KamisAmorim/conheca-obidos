@@ -1,0 +1,112 @@
+.animation, .animation_layer {
+	height: 1000px;
+}
+
+.animation {
+  display: block;
+	position: relative;
+	z-index: 10;
+}
+
+.animation_layer {
+  background-position: bottom right;
+  background-size: auto 920px;
+  background-repeat: no-repeat ;
+  width: 100%;
+  position: absolute;
+  
+  /* 🌟 O MILAGRE ESTÁ AQUI: */
+  pointer-events: none; /* Faz o clique do mouse "atravessar" as imagens e chegar nos botões! */
+}
+
+#background {
+  background-color: #58A3FD;
+}
+
+#nuvens-03{
+  background-image: url(assets/img/bem-vindo/nuvens\ 03.png);
+}
+
+#nuvens-02{
+  background-image: url(assets/img/bem-vindo/nuvens\ 02.png);
+}
+
+#nuvens-01{
+  background-image: url(assets/img/bem-vindo/nuvens\ 01.png);
+}
+
+#serra-02{
+  background-image: url(assets/img/bem-vindo/montanha\ 02.png);
+}
+
+#serra-01{
+  background-image: url(assets/img/bem-vindo/montanha\ 01.png);
+}
+
+#neblina{
+  background-image: url(assets/img/bem-vindo/neblina.png);
+  opacity: 0.8;
+}
+
+#logo{
+  background-image: url(assets/img/bem-vindo/logo-menor.png);
+}
+
+#rio-04{
+   background-image: url(assets/img/bem-vindo/rio\ 04.png);
+}
+
+#barco{
+   background-image: url(assets/img/bem-vindo/barco.png);
+}
+
+#rio-03{
+   background-image: url(assets/img/bem-vindo/rio\ 03.png);
+}
+
+#rio-02{
+   background-image: url(assets/img/bem-vindo/rio\ 02.png);
+}
+
+#rio-01{
+   background-image: url(assets/img/bem-vindo/rio\ 01.png);
+}
+
+
+#divisoria{
+  height: 8vh;
+  background-color: #ed1616;
+}
+
+#bloco-sobre {
+  padding: 4rem;
+  padding-top: 3rem;
+  text-align: center;
+  height: auto;
+  background: linear-gradient(
+    rgba(3, 147, 216, 1),
+    rgba(16, 97, 135, 1)
+  );
+  background-size: cover;
+  background-position: bottom;
+  /* 🌟 ADICIONE ISSO AQUI: */
+  pointer-events: auto; /* Faz esse bloco específico aceitar cliques e seleção de texto novamente */
+}
+
+#bloco-sobre h2{
+  color: white;
+}
+
+#bloco-sobre p{
+  color: white;
+  padding: 0;
+}
+
+#menu-cards{
+  padding: 4rem;
+  padding-top: 3rem;
+  text-align: center;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+}
+

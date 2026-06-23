@@ -1,13 +1,32 @@
 import { ParallaxLayer } from "@react-spring/parallax";
+import CardNavegacao from '../componentes/card/card';
+import imgTurismo from '../assets/img/gerais/fundoConstrução.png';
+import Listras from "./listra/listra";
 
-function MenuCards(){
-    return(
-        <ParallaxLayer offset={1.45} speed={0.35}>
-        <div id="menu-cards">
-            <h2 style={{color: "black"}}>POR ONDE DESEJAS COMEÇAR?</h2>
-        </div>
+function MenuCards() {
+    const cards = [
+        { titulo: "Turismo", link: "/turismo", imagem: imgTurismo },
+        { titulo: "Gastronomia", link: "/gastronomia", imagem: imgTurismo },
+        { titulo: "História", link: "/historia", imagem: imgTurismo },
+        { titulo: "Turismo", link: "/turismo", imagem: imgTurismo },
+        { titulo: "Gastronomia", link: "/gastronomia", imagem: imgTurismo },
+        { titulo: "História", link: "/historia", imagem: imgTurismo }
+    ];
+
+    return (
+        <ParallaxLayer offset={2} speed={0}>
+            <Listras/>
+            <div id="menu-cards">
+                <h2>POR ONDE DESEJAS COMEÇAR?</h2>
+                <div id="bloco-card">
+                    <div id="row01">
+                        {cards.map((item, index) => (
+                            <CardNavegacao key={index} {...item} />
+                        ))}
+                    </div>
+                </div>
+            </div>
         </ParallaxLayer>
     )
 }
-
-export default MenuCards
+export default MenuCards;

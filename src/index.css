@@ -19,7 +19,7 @@ body {
   max-width: 100%;
   margin: 0;
   /* text-align: center; -> REMOVIDO para não quebrar o alinhamento da navbar */
-  min-height: 100svh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

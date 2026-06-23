@@ -2,18 +2,14 @@ import './navbar.css';
 
 function Navbar({ parallaxRef }) {
   console.log("Navbar renderizou");
+  const isMobile = window.innerWidth < 768;
   return (
     <nav className="navbar-global" >
       <div className="navbar-logo">
         <button
           onClick={() => parallaxRef.current?.scrollTo(0)}
-          className="nav-btn-logo"
-        >
+          className="nav-btn-logo">
           <div id='img-logo-nav'></div>
-          <div id='text-logo'>
-            <span id='filho1'>conheça</span>
-            <span id='filho2'>ÓBIDOS</span>
-          </div>
         </button>
       </div>
 
@@ -29,7 +25,7 @@ function Navbar({ parallaxRef }) {
 
         <li>
           <button
-            onClick={() => parallaxRef.current?.scrollTo(0.938)}
+            onClick={() => parallaxRef.current?.scrollTo(1)}
             className="nav-link-btn"
           >
             Sobre
@@ -38,16 +34,16 @@ function Navbar({ parallaxRef }) {
 
         <li>
           <button
-            onClick={() => parallaxRef.current?.scrollTo(1.3)}
+            onClick={() => parallaxRef.current?.scrollTo(2)}
             className="nav-link-btn"
           >
-            Galeria
+            Topicos
           </button>
         </li>
 
         <li>
           <button
-            onClick={() => parallaxRef.current?.scrollTo(3)}
+            onClick={() => parallaxRef.current?.scrollTo(isMobile? 4.5:3)}
             className="nav-link-btn"
           >
             Contato

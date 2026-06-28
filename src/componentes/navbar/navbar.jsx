@@ -1,63 +1,42 @@
+import { useState } from "react";
 import './navbar.css';
 
 function Navbar({ parallaxRef }) {
-  console.log("Navbar renderizou");
+  const [active, setActive] = useState(0);
   const isMobile = window.innerWidth < 768;
+
+  const handleScroll = (index) => {
+    setActive(index);
+    parallaxRef.current?.scrollTo(index);
+  };
+
+  const navItems = [
+    { name: "Início", id: 0 },
+    { name: "Sobre", id: 1 },
+    { name: "Topicos", id: 2 },
+    { name: "Contato", id: isMobile ? 4.5 : 3 },
+    { name: "Quem somos?", id: isMobile ? 4.5 : 4 }
+  ];
+
   return (
-    <nav className="navbar-global" >
+    <nav className="navbar-global">
       <div className="navbar-logo">
-        <button
-          onClick={() => parallaxRef.current?.scrollTo(0)}
-          className="nav-btn-logo">
+        <button onClick={() => handleScroll(0)} className="nav-btn-logo">
           <div id='img-logo-nav'></div>
         </button>
       </div>
 
       <ul className="navbar-links">
-        <li>
-          <button
-            onClick={() => parallaxRef.current?.scrollTo(0)}
-            className="nav-link-btn"
-          >
-            Início
-          </button>
-        </li>
-
-        <li>
-          <button
-            onClick={() => parallaxRef.current?.scrollTo(1)}
-            className="nav-link-btn"
-          >
-            Sobre
-          </button>
-        </li>
-
-        <li>
-          <button
-            onClick={() => parallaxRef.current?.scrollTo(2)}
-            className="nav-link-btn"
-          >
-            Topicos
-          </button>
-        </li>
-
-        <li>
-          <button
-            onClick={() => parallaxRef.current?.scrollTo(isMobile? 4.5:3)}
-            className="nav-link-btn"
-          >
-            Contato
-          </button>
-        </li>
-
-        <li>
-          <button
-            onClick={() => parallaxRef.current?.scrollTo(isMobile? 4.5:4)}
-            className="nav-link-btn"
-          >
-            Quem somos?
-          </button>
-        </li>
+        {navItems.map((item) => (
+          <li key={item.name}>
+            <button
+              onClick={() => handleScroll(item.id)}
+              className={`nav-link-btn ${active === item.id ? 'active' : ''}`}
+            >
+              {item.name}
+            </button>
+          </li>
+        ))}
       </ul>
     </nav>
   );

@@ -17,13 +17,15 @@ function App() {
   return (
     <BrowserRouter> 
       <Navbar parallaxRef={parallaxRef} />
-      <Parallax ref={parallaxRef} pages={isMobile? 7:5} className='animation'>
+      <Parallax ref={parallaxRef} pages={isMobile? 7.1:5.1} className='animation'>
         {/* O ParallaxLayer já organiza o posicionamento, não use <section> */}
         <BemVindo /> 
-        <SobrePagina />
-        <MenuCards />
-        <Contatos/>
-        <SobreDevs/>
+        <div id="fundo-geral">
+          <SobrePagina />
+          <MenuCards />
+          <Contatos/>
+          <SobreDevs/>
+        </div>
       </Parallax>
     </BrowserRouter>
   );

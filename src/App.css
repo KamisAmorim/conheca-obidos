@@ -78,94 +78,101 @@
   background-color: #ed1616;
 }
 
+/*sobre a página*/
+/* Container que ocupa a tela toda com o gradiente */
 #bloco-sobre {
-  background: linear-gradient(rgb(157, 206, 229), rgba(22, 137, 190,1));
+  background: linear-gradient(135deg, rgb(0, 160, 175), rgba(15, 65, 100));
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Garante que nada transborde para fora */
+  padding: 20px;
 }
 
-#bloco-sobre h2 div{
-  background-color: #b30000;
-  border-radius: 10px;
-  margin: auto;
-}
-
-#sobre-texto {
-  margin: 0;
-  padding: 4rem;
-  text-align: justify;
-  
-  /* ESTAS SÃO AS PROPRIEDADES QUE TRANCAM O TAMANHO DO TEXTO */
-  width: 400px;      /* Largura base */
-  min-width: 400px;  /* Nunca menor que isso */
-  max-width: 400px;  /* Nunca maior que isso */
-  
-  flex-grow: 0;      /* Não cresce */
-  flex-shrink: 0;    /* NÃO ENCOLHE EM HIPÓTESE ALGUMA */
-  
-  align-self: center;
-}
-
-#bloco-sobre figure {
-  margin: 0;
-  flex: 1;           /* A imagem absorve toda a variação de largura da tela */
+/* O Card estilo Login */
+.card-sobre {
+  background: white;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-#bloco-sobre figure img {
+/* Área de Texto */
+#sobre-texto {
+  flex: 1;
+  padding: 3rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#sobre-texto h2 {
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Barrinha vermelha característica */
+.barra-destaque {
+  background-color: #b30000;
+  width: 60px;
+  height: 6px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+#sobre-texto p {
+  text-align: justify;
+  line-height: 1.6;
+  padding: 0;
+}
+
+/* Área da Imagem */
+.sobre-img {
+  margin: 0;
+  flex: 1;
+}
+
+.sobre-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-#sobre-texto {
-  margin: 0;
-  padding: 4rem;
-  padding-top: 0 ;
-  padding-bottom: 3vh;
-  text-align: justify;
-  width: 30%; /* Define uma largura fixa ou baseada em porcentagem para o texto */
-  /* flex: 0 0 30%; Opcional: define tamanho fixo e impede que encolha ou cresça */
-  align-self: center;
-  color: white;
+/* Responsividade: Coloca um em cima do outro em telas menores */
+@media (max-width: 768px) {
+  .card-sobre {
+    flex-direction: column;
+    width: 95%;
+  }
 }
 
-#sobre-texto h2{
-  margin: 0;
-  padding-bottom: 3vh;
-  text-align: center;
-  color: #ffffff;
-}
-
-#sobre-texto p{
-  margin: 0;
-  padding: 0;
-}
-
+/*menu cards*/
 #menu-cards {
   padding: 4rem;
   padding-top: 5rem;
   text-align: center;
+  min-height: 100vh;
   height: auto;
   background: linear-gradient(rgba(198, 237, 255,1), rgba(22, 137, 190,1));
 }
 
-#menu-cards h2 div{
-  background-color: #b30000;
-  border-radius: 10px;
-  margin-top: 0;
-  margin-bottom: 0;
-  width: 65%;
-  margin: auto;
-}
-
 #menu-cards h2{
-  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Adicione estas partes para organizar os cards dentro dele */
@@ -192,89 +199,121 @@
   max-width: 350px;
 }
 
-/*contato*/
+/* Container Geral da Seção */
 #contato {
-  background: linear-gradient(rgba(22, 137, 190,1), rgba(198, 237, 255,1));
+  background: linear-gradient(135deg, rgba(15, 65, 100), rgb(0, 160, 175));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* O Card estilo Login */
+.card-contato {
+  background: white;
+  display: flex;
+  flex-direction: row; /* Imagem na esquerda, Formulário na direita */
+  width: 80%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Área da Imagem */
+.contato-img {
+  flex: 1;
+  margin: 0;
+}
+
+.contato-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Área do Formulário */
+.contato-formulario {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contato-formulario h2 {
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  color: #333;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  padding-top: 1vh;
 }
 
-#contato h2 div{
+/* A barrinha vermelha característica */
+.barra-destaque {
   background-color: #b30000;
+  width: 60px;
+  height: 6px;
   border-radius: 10px;
-  width: 100%;
-  margin: auto;
+  margin-top: 10px;
 }
 
-#contato h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #ffffff;
+.contato-formulario p {
   text-align: center;
+  color: #666;
+  margin-bottom: 20px;
 }
 
-.contato-container {
-  align-items: center;
-  gap: 40px;
-  width: 60%;
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  margin-left: 50%;
-  margin-right: 50%;
-}
-#formzin{
-  display: flex;
-}
-.form-contato {
-  flex: 1;
+/* Formulário e Inputs */
+.form-contato-unico {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.form-contato input,
-.form-contato textarea {
+.form-contato-unico input, 
+.form-contato-unico textarea {
   padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 2px solid #eee;
+  border-radius: 10px;
   font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
-.form-contato textarea {
-  height: 120px;
+.form-contato-unico input:focus, 
+.form-contato-unico textarea:focus {
+  border-color: #00a0af;
+  outline: none;
+}
+
+.form-contato-unico textarea {
+  height: 100px;
   resize: none;
 }
 
-.form-contato button {
-  padding: 12px;
-  background-color: #007bff;
+.form-contato-unico button {
+  background-color: #00a0af;
   color: white;
+  padding: 12px;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 10px;
   font-weight: bold;
+  cursor: pointer;
   transition: background 0.3s;
 }
 
-.form-contato button:hover {
-  background-color: #0056b3;
+.form-contato-unico button:hover {
+  background-color: #0d4a7a;
 }
 
-.info-contato {
-  flex: 0.5;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 15px;
+/* Responsividade: Empilha em telas pequenas */
+@media (max-width: 768px) {
+  .card-contato {
+    flex-direction: column;
+  }
 }
 
 /*sobre os devs*/
@@ -282,15 +321,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 20px;
-  padding-top: 10vh;
-  background-color: #0056b3;
+  padding: 10vh 20px;
+  min-height: 100vh;
+  background: linear-gradient(rgba(198, 237, 255,1), rgba(22, 137, 190,1));
 }
 
-#sobre h2 {
+.titulo-secao {
+  color: #333;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 2.5rem;
-  color: #ffffff;
-  margin-bottom: 40px;
+}
+
+.barra-destaque {
+  background-color: #b30000;
+  width: 60px;
+  height: 6px;
+  border-radius: 10px;
+  margin-top: 15px;
 }
 
 .dev-container {
@@ -298,6 +348,7 @@
   gap: 40px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 5vh;
 }
 
 .dev-card {
@@ -305,8 +356,8 @@
   padding: 30px;
   border-radius: 20px;
   text-align: center;
-  width: 280px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
 
@@ -326,21 +377,34 @@
 
 .dev-card h3 {
   margin: 10px 0;
+  margin-bottom: 0;
   color: #222;
 }
 
 .dev-card .cargo {
+  color: #00a0af;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding-top: 0;
+  text-align: center;
+}
+
+.convite-social {
   color: #666;
   font-size: 0.9rem;
   margin-bottom: 20px;
+  line-height: 1.4;
+  padding: 10%;
+  padding-bottom: 5%;
   text-align: center;
+  margin: 0;
 }
 
 .links {
   display: flex;
   justify-content: center;
   gap: 20px;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 .links a {
@@ -348,11 +412,55 @@
   transition: all 0.3s ease;
 }
 
-/* Efeito de cor ao passar o mouse */
-.links a:hover:nth-child(1) {
-  color: #000; /* Cor do GitHub */
+.links a:hover:nth-child(1) { color: #000; }
+.links a:hover:nth-child(2) { color: #E1306C; }
+
+/* Rodapé */
+.footer {
+  background: rgba(0, 0, 0, 0.2); /* Fundo levemente escurecido para dar contraste */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
 }
 
-.links a:hover:nth-child(2) {
-  color: #E1306C; /* Cor do Instagram */
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.marca {
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+  letter-spacing: 1px;
+}
+
+.legenda {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Essa linha dá um acabamento muito mais profissional */
+.rodape-divider {
+  width: 50px;
+  height: 2px;
+  background-color: #b30000; /* O vermelho característico da sua marca */
+  margin: 0 auto 20px;
+}
+
+.creditos {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .creditos {
+    flex-direction: column;
+    gap: 5px;
+  }
 }

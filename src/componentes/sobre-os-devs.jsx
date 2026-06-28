@@ -1,7 +1,8 @@
 import { ParallaxLayer } from "@react-spring/parallax";
 import { FaGithub, FaInstagram } from "react-icons/fa";
-import kamis from "../assets/img/gerais/kamis01.png"
-import Rob from "../assets/img/gerais/rob.png"
+import kamis from "../assets/img/gerais/kamis01.png";
+import Rob from "../assets/img/gerais/rob.png";
+import Listras from "./listra/listra";
 
 function SobreDevs() {
   const isMobile = window.innerWidth < 768;
@@ -9,23 +10,28 @@ function SobreDevs() {
     {
       nome: "Kamis Souza",
       cargo: "Desenvolvedora",
-      foto: kamis, // Substitua pelo caminho da sua imagem
+      foto: kamis,
       github: "https://github.com/KamisAmorim",
       instagram: "https://www.instagram.com/kamis_sou.za?igsh=ZTVldGF5M2xnN2Y2",
     },
     {
       nome: "RobGol Viana",
-      cargo: "Desenvolvedora",
-      foto: Rob, // Substitua pelo caminho da imagem do colega
+      cargo: "Desenvolvedor",
+      foto: Rob,
       github: "https://github.com/colega",
       instagram: "https://instagram.com/colega",
     },
   ];
 
   return (
-    <ParallaxLayer offset={isMobile? 5.5:4} speed={0}>
+    <ParallaxLayer offset={isMobile ? 5.5 : 4} speed={0}>
+      <Listras />
       <div id="sobre">
-        <h2><div>Quem Somos</div></h2>
+        <h2 className="titulo-secao">
+          Quem Somos
+          <div className="barra-destaque"></div>
+        </h2>
+        
         <div className="dev-container">
           {desenvolvedores.map((dev, index) => (
             <div key={index} className="dev-card">
@@ -35,6 +41,9 @@ function SobreDevs() {
               ></div>
               <h3>{dev.nome}</h3>
               <p className="cargo">{dev.cargo}</p>
+              
+              <p className="convite-social">Conheça-nos melhor através do nosso Instagram e/ou GitHub:</p>
+              
               <div className="links">
                 <a href={dev.github} target="_blank" rel="noreferrer" title="GitHub">
                   <FaGithub />
@@ -46,6 +55,20 @@ function SobreDevs() {
             </div>
           ))}
         </div>
+
+        <footer className="footer">
+            <div className="footer-content">
+                <h3 className="marca">Conheça Óbidos</h3>
+                <p className="legenda">Um projeto dedicado à história e cultura da nossa cidade.</p>
+                
+                <div className="rodape-divider"></div>
+
+                <div className="creditos">
+                    <span>&copy; {new Date().getFullYear()}</span>
+                    <span>Desenvolvido por Kamis Souza & RobGol Viana</span>
+                </div>
+            </div>
+        </footer>
       </div>
     </ParallaxLayer>
   );

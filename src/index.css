@@ -5,8 +5,8 @@
   --mono: ui-monospace, Consolas, monospace;
 
   /* DICA: Adicione as cores padrões da sua barra aqui como variáveis! */
-  --cor-lista-1: #FFE677;
-  --cor-lista-2: #C7A300;
+  --cor1: #FFE677;
+  --cor2: #C7A300;
 }
 
 body {

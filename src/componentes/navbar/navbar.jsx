@@ -49,6 +49,15 @@ function Navbar({ parallaxRef }) {
             Contato
           </button>
         </li>
+
+        <li>
+          <button
+            onClick={() => parallaxRef.current?.scrollTo(isMobile? 4.5:4)}
+            className="nav-link-btn"
+          >
+            Quem somos?
+          </button>
+        </li>
       </ul>
     </nav>
   );

@@ -7,7 +7,7 @@ function BemVindo() {
     <ParallaxLayer offset={0}>
       
       {/* Suas subcamadas continuam aqui dentro, fazendo a mágica do efeito 3D */}
-      <ParallaxLayer offset={0} speed={0.5}>
+      <ParallaxLayer offset={0} speed={0}>
         <div className="animation_layer parallax" id="background"></div>
       </ParallaxLayer>
       <ParallaxLayer offset={0} speed={-0.50}>

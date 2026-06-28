@@ -11,7 +11,9 @@ function SobrePagina(){
                 <div id="bloco-sobre">
                     <div id="sobre-texto">
                         <h2>
-                            SOBRE A PAGINA
+                            <div>
+                                Sobre a Página
+                            </div>
                         </h2>
                         <p>
                             O site “Conheça Óbidos” tem como objetivo apresentar um guia completo sobre o

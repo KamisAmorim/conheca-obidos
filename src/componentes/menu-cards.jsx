@@ -17,7 +17,7 @@ function MenuCards() {
         <ParallaxLayer offset={2} speed={0}>
             <Listras/>
             <div id="menu-cards">
-                <h2>POR ONDE DESEJAS COMEÇAR?</h2>
+                <h2><div>Por Onde Desejas Começar?</div></h2>
                 <div id="bloco-card">
                     <div id="row01">
                         {cards.map((item, index) => (

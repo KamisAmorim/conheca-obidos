@@ -5,7 +5,41 @@ function Navbar({ parallaxRef }) {
   const [active, setActive] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Fecha o menu se a tela aumentar para tamanho de desktop
+  // Efeito para monitorar o scroll
+  useEffect(() => {
+    // Função que calcula a página ativa
+    const handleScrollUpdate = () => {
+      const container = parallaxRef.current?.container.current;
+      if (container) {
+        const scrollPosition = container.scrollTop;
+        const pageHeight = window.innerHeight;
+        const currentPage = Math.round(scrollPosition / pageHeight);
+        
+        // Só atualiza o estado se for diferente para evitar renderizações desnecessárias
+        if (currentPage !== active) {
+          setActive(currentPage);
+        }
+      }
+    };
+
+    // Pequeno atraso para garantir que o parallaxRef esteja montado no mobile
+    const timer = setTimeout(() => {
+      const container = parallaxRef.current?.container.current;
+      if (container) {
+        container.addEventListener("scroll", handleScrollUpdate);
+      }
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+      const container = parallaxRef.current?.container.current;
+      if (container) {
+        container.removeEventListener("scroll", handleScrollUpdate);
+      }
+    };
+  }, [parallaxRef, active]);
+
+  // Efeito para fechar o menu se a tela aumentar
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setIsMenuOpen(false);

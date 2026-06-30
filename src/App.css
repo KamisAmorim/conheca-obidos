@@ -10,7 +10,7 @@
 
 .animation_layer {
   background-position: bottom right;
-  background-size: auto 920px;
+  background-size: cover;
   background-repeat: no-repeat ;
   width: 100%;
   position: absolute;

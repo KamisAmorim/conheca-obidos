@@ -20,12 +20,10 @@ function App() {
       <Parallax ref={parallaxRef} pages={isMobile? 7.1:5.1} className='animation'>
         {/* O ParallaxLayer já organiza o posicionamento, não use <section> */}
         <BemVindo /> 
-        <div id="fundo-geral">
-          <SobrePagina />
-          <MenuCards />
-          <Contatos/>
-          <SobreDevs/>
-        </div>
+        <SobrePagina />
+        <MenuCards />
+        <Contatos/>
+        <SobreDevs/>
       </Parallax>
     </BrowserRouter>
   );

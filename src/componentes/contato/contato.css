@@ -1,6 +1,6 @@
 /* Container Geral da Seção */
 #contato {
-  background: linear-gradient(135deg, rgba(15, 65, 100, 0.95), rgba(0, 160, 175, 0.95)), url(../../assets/img/gerais/anim.gif);
+  background: linear-gradient(135deg, rgba(15, 65, 100, 1), rgba(0, 160, 175, 1));
   background-size: cover;
   display: flex;
   align-items: center;
@@ -116,7 +116,7 @@
         padding: 0;
         padding-top: 10vh;
         padding-bottom: 5vh;
-        height: auto;
+        height: 200vh;
     }
 
     .card-contato{

@@ -13,7 +13,7 @@ function MenuCards() {
     const isMobile = window.innerWidth < 950;
 
     const cards = [
-        { titulo: "História e Cultura", link: "/conheca-obidos/src/paginas/historia.html", imagem: imgHistoriaCultura },
+        { titulo: "História e Cultura", link: "/conheca-obidos/paginas/historia.html", imagem: imgHistoriaCultura },
         { titulo: "Turismo", link: "/conheca-obidos/", imagem: imgTurismo },
         { titulo: "Moradia", link: "/conheca-obidos/moradia.html", imagem: imgMoradia },
         { titulo: "Educação", link: "/conheca-obidos/educacao.html", imagem: imgEdu },

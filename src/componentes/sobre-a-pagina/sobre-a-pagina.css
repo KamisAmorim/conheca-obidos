@@ -1,0 +1,94 @@
+/*sobre a página*/
+/* Container que ocupa a tela toda com o gradiente */
+#bloco-sobre {
+  background: linear-gradient(135deg, rgba(0, 160, 175,0.95), rgba(15, 65, 100, 0.95)), url(../../assets/img/gerais/anim.gif);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-size: cover;
+}
+
+/* O Card estilo Login */
+.card-sobre {
+  background: white;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Área de Texto */
+#sobre-texto {
+  flex: 1;
+  padding: 3rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#sobre-texto h2 {
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Barrinha vermelha característica */
+.barra-destaque {
+  background-color: #b30000;
+  width: 60px;
+  height: 6px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+#sobre-texto p {
+  text-align: justify;
+  line-height: 1.6;
+  padding: 0;
+}
+
+/* Área da Imagem */
+.sobre-img {
+  margin: 0;
+  flex: 1;
+}
+
+.sobre-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsividade: Coloca um em cima do outro em telas menores */
+@media (max-width: 950px) {
+
+    #bloco-sobre{
+        justify-content:center;
+        width: 100%;
+        padding: 0;
+        padding-top: 8vh;
+        padding-bottom: 4vh;
+    }
+    .card-sobre {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #sobre-texto h2{
+        font-size: 3.5vh;
+    }
+
+    #sobre-texto p {
+        font-size: 2vh;
+    }
+}

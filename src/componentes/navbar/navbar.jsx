@@ -4,69 +4,67 @@ import './navbar.css';
 function Navbar({ parallaxRef }) {
   const [active, setActive] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 950);
 
-  // Efeito para monitorar o scroll
+  // Configuração centralizada dos destinos
+  const navItems = [
+    { name: "Início", id: 0, desktop: 0, mobile: 0 },
+    { name: "Sobre", id: 1, desktop: 1, mobile: 0.6 },
+    { name: "Topicos", id: 2, desktop: 2, mobile: 1.74 },
+    { name: "Contato", id: 3, desktop: 3, mobile: 4 },
+    { name: "Quem somos?", id: 4, desktop: 4, mobile: 5.15 }
+  ];
+
+  // Monitora redimensionamento para ajustar o isMobile
   useEffect(() => {
-    // Função que calcula a página ativa
-    const handleScrollUpdate = () => {
-      const container = parallaxRef.current?.container.current;
-      if (container) {
-        const scrollPosition = container.scrollTop;
-        const pageHeight = window.innerHeight;
-        const currentPage = Math.round(scrollPosition / pageHeight);
-        
-        // Só atualiza o estado se for diferente para evitar renderizações desnecessárias
-        if (currentPage !== active) {
-          setActive(currentPage);
-        }
-      }
-    };
-
-    // Pequeno atraso para garantir que o parallaxRef esteja montado no mobile
-    const timer = setTimeout(() => {
-      const container = parallaxRef.current?.container.current;
-      if (container) {
-        container.addEventListener("scroll", handleScrollUpdate);
-      }
-    }, 500);
-
-    return () => {
-      clearTimeout(timer);
-      const container = parallaxRef.current?.container.current;
-      if (container) {
-        container.removeEventListener("scroll", handleScrollUpdate);
-      }
-    };
-  }, [parallaxRef, active]);
-
-  // Efeito para fechar o menu se a tela aumentar
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) setIsMenuOpen(false);
-    };
+    const handleResize = () => setIsMobile(window.innerWidth < 950);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleScroll = (index) => {
-    setActive(index);
-    parallaxRef.current?.scrollTo(index);
-    setIsMenuOpen(false);
-  };
+  // Lógica inteligente de Scroll (não usa Math.round)
+  useEffect(() => {
+    const handleScrollUpdate = () => {
+      const container = parallaxRef.current?.container.current;
+      if (!container) return;
 
-  const navItems = [
-    { name: "Início", id: 0 },
-    { name: "Sobre", id: 1 },
-    { name: "Topicos", id: 2 },
-    { name: "Contato", id: 3 },
-    { name: "Quem somos?", id: 4 }
-  ];
+      const scrollPosition = container.scrollTop;
+      const pageHeight = window.innerHeight;
+      const currentScroll = scrollPosition / pageHeight;
+
+      // Encontra qual item está ativo baseando-se nos offsets definidos
+      const activeItem = navItems.find((item, index) => {
+        const threshold = isMobile ? item.mobile : item.desktop;
+        const nextThreshold = navItems[index + 1] 
+          ? (isMobile ? navItems[index + 1].mobile : navItems[index + 1].desktop) 
+          : threshold + 1;
+        
+        // Margem de erro de 0.2 para suavizar a transição
+        return currentScroll >= threshold - 0.2 && currentScroll < nextThreshold - 0.2;
+      });
+
+      if (activeItem && activeItem.id !== active) {
+        setActive(activeItem.id);
+      }
+    };
+
+    const container = parallaxRef.current?.container.current;
+    container?.addEventListener("scroll", handleScrollUpdate);
+    return () => container?.removeEventListener("scroll", handleScrollUpdate);
+  }, [parallaxRef, active, isMobile]);
+
+  const handleScroll = (item) => {
+    const destino = isMobile ? item.mobile : item.desktop;
+    parallaxRef.current?.scrollTo(destino);
+    setIsMenuOpen(false);
+    setActive(item.id);
+  };
 
   return (
     <>
       <nav className="navbar-global">
         <div className="navbar-logo">
-          <button onClick={() => handleScroll(0)} className="nav-btn-logo">
+          <button onClick={() => handleScroll(navItems[0])} className="nav-btn-logo">
             <div id='img-logo-nav'></div>
           </button>
         </div>
@@ -77,7 +75,7 @@ function Navbar({ parallaxRef }) {
           {navItems.map((item) => (
             <li key={item.name}>
               <button
-                onClick={() => handleScroll(item.id)}
+                onClick={() => handleScroll(item)}
                 className={`nav-link-btn ${active === item.id ? 'active' : ''}`}
               >
                 {item.name}

@@ -1,0 +1,94 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+.animation, .animation_layer {
+  min-height: 100vh;
+}
+
+.animation {
+  display: block;
+  position: relative;
+  z-index: 10;
+}
+
+.animation_layer {
+  background-position: bottom right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: absolute;
+  /* Faz o clique do mouse "atravessar" as imagens e chegar nos botões */
+  pointer-events: none;
+}
+
+/* --- VERSÃO MOBILE (IMAGEM FIXA) --- */
+.hero-mobile-fixo {
+  width: 100%;
+  height: 60vh;
+  background-color: #58A3FD;
+  /* Ajuste este caminho conforme a estrutura real das suas pastas */
+  background-image: url('../../assets/img/bem-vindo/fundo-celular.png'); 
+  background-size: cover;
+  background-position: 50% 40%;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* --- CAMADAS DO PARALLAX (DESKTOP) --- */
+#background {
+  background-color: #58A3FD;
+}
+
+#nuvens-03 {
+  background-image: url('../../assets/img/bem-vindo/nuvens 03.png');
+}
+
+#nuvens-02 {
+  background-image: url('../../assets/img/bem-vindo/nuvens 02.png');
+}
+
+#nuvens-01 {
+  background-image: url('../../assets/img/bem-vindo/nuvens 01.png');
+}
+
+#serra-02 {
+  background-image: url('../../assets/img/bem-vindo/montanha 02.png');
+}
+
+#serra-01 {
+  background-image: url('../../assets/img/bem-vindo/montanha 01.png');
+}
+
+#neblina {
+  background-image: url('../../assets/img/bem-vindo/neblina.png');
+  opacity: 0.8;
+}
+
+#logo {
+  background-image: url('../../assets/img/bem-vindo/logo-01.png');
+}
+
+#rio-04 {
+  background-image: url('../../assets/img/bem-vindo/rio 04.png');
+}
+
+#barco {
+  background-image: url('../../assets/img/bem-vindo/barco.png');
+}
+
+#rio-03 {
+  background-image: url('../../assets/img/bem-vindo/rio 03.png');
+}
+
+#rio-02 {
+  background-image: url('../../assets/img/bem-vindo/rio 02.png');
+}
+
+#rio-01 {
+  background-image: url('../../assets/img/bem-vindo/rio 01.png');
+}
+
+#divisoria {
+  height: 8vh;
+  background-color: #ed1616;
+}
